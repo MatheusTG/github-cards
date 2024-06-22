@@ -1,36 +1,12 @@
-"use client";
-
-import { setCookie } from "@/actions/setCookie";
+import { getCookie } from "@/actions/getCookie";
+import { setUsers } from "@/actions/setUsers";
 import React from "react";
 
-export default function SearchForm() {
-  const [value, setValue] = React.useState("");
-
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const usersLocal = window.localStorage.getItem("users");
-    
-    let usersList = [];
-    if (usersLocal) {
-      usersList = JSON.parse(usersLocal);
-    }
-    usersList.push(value);
-    setCookie('users', JSON.stringify(usersList))
-    window.localStorage.setItem("users", JSON.stringify(usersList));
-    setValue("");
-  }
-
+export default async function SearchForm() {
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="user">Usuário GitHub</label>
-      <input
-        type="text"
-        id="user"
-        name="user"
-        value={value}
-        onChange={({ target }) => setValue(target.value)}
-      />
+    <form action={setUsers}>
+      <label htmlFor="username">Usuário GitHub</label>
+      <input type="text" id="username" name="username" />
       <button type="submit">Adicionar</button>
     </form>
   );
