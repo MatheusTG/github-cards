@@ -1,5 +1,6 @@
 "use client";
 
+import { setCookie } from "@/actions/setCookie";
 import React from "react";
 
 export default function SearchForm() {
@@ -9,12 +10,13 @@ export default function SearchForm() {
     event.preventDefault();
 
     const usersLocal = window.localStorage.getItem("users");
-
+    
     let usersList = [];
     if (usersLocal) {
       usersList = JSON.parse(usersLocal);
     }
     usersList.push(value);
+    setCookie('users', JSON.stringify(usersList))
     window.localStorage.setItem("users", JSON.stringify(usersList));
     setValue("");
   }
