@@ -10,10 +10,8 @@ export default async function UsersList() {
     usersList = JSON.parse(users.value);
   }
 
-  console.log(users)
-
   return (
-    <ul>
+    <ul className="flex gap-[1.5rem]">
       {usersList &&
         usersList.map((username) => (
           <UserComponent key={username} username={username} />
