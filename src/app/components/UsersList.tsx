@@ -4,6 +4,7 @@ import UserComponent from "./UserComponent";
 
 export default async function UsersList() {
   const users = await getCookie("users");
+  console.log(users)
 
   let usersList: string[] = [];
   if (users) {
@@ -11,7 +12,7 @@ export default async function UsersList() {
   }
 
   return (
-    <ul className="flex gap-[1.5rem]">
+    <ul className="grid grid-cols-[1fr_1fr] gap-[1.5rem] mb-[4rem]">
       {usersList &&
         usersList.map((username) => (
           <UserComponent key={username} username={username} />

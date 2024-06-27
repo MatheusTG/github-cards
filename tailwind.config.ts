@@ -18,7 +18,9 @@ const config: Config = {
 
         gray100: '#ffffff',
         gray200: "#F4F4F5",
-        gray300: "#AAAAAA",
+        gray400: "#F2F2F2",
+        gray500: "#D9D9D9",
+        // gray300: "#AAAAAA",
       },
       boxShadow: {
         'card-shadow': '1px 4px 4px rgba(0, 0, 0, 0.1)',
